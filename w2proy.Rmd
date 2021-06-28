@@ -1,0 +1,35 @@
+---
+title: "Proyect week 2"
+author: "colombianBP"
+date: "6/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Map of Colombias population per region
+
+Made by ColombianBP (Nicolas Hoyos) on June 28 2021
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+library(leaflet)
+```
+
+
+
+```{r pressure, echo=FALSE,warning=FALSE,message=FALSE}
+md_cities <- data.frame(name = c("Bogotá","Antioquia","Valle del Cauca","Cundinamarca","Atlántico","Bolívar","Santander","Nariño","Córdoba","Tolima","Cauca","Norte de Santander","Boyacá","Magdalena","Huila","Cesar","Caldas","Meta","La Guajira","Risaralda","Sucre","Quindío","Chocó","Caquetá","Casanare","Putumayo","Arauca","Guaviare","San Andrés y Providencia","Amazonas","Vichada","Vaupés","Guainía"),
+                        pop = c(7980001,6534764,4613377,2680041,2461001,2097086,2061095,1744275,1709603,1408274,1379070,1355723,1276367,1259667,1154804,1028880,988003,961292,957814,951945,851526,565266,500076,477619,356438,345204,262315,111060,76442,76243,71974,43665,41482),
+                        lat = c(4.637333,6.784185,3.588767,5.197481,10.731329,8.601106,6.773850,1.597633,8.332089,4.109777,2.435357,8.140082,5.460714,10.355828,2.616944,9.919992,5.319695,3.414611,11.364236,5.267884,9.149072,4.479797,5.836409,0.750437,5.363089,0.729345,6.618624,1.966614,12.546153,-1.660550,5.076379,0.776059,2.712814),
+                        
+                        lng = c(-74.097520,-75.515108,-76.560593, -74.377988,-74.904727,-74.237599,-73.393763,-77.807660,-75.763042,-75.221024,-76.913367,-72.839967,-73.109737,-74.383292,-75.485387,-73.497455,-75.375733,-73.155282,-72.685992,-75.955503,-75.093716,-75.694667,-76.999939,-74.166330,-71.939695,-76.379017,-70.828600,-72.068543,-81.717841,-71.220713,-69.362576,-70.439893,-68.687103))
+md_cities %>%
+  leaflet() %>%
+  addTiles() %>%
+  addCircles(weight = 1, radius = sqrt(md_cities$pop) * 30)
+```
+
+
+
