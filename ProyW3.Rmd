@@ -1,0 +1,36 @@
+---
+title: "Cars characteristics"
+author: "colombianBP"
+date: "6/29/2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE, message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+```
+
+## colombianBP (Nicolas Hoyos)
+- June 29 2021
+
+this presentations shows a few relationships taken form the variables available on `mtcars`
+
+
+## A little look at our data
+
+```{r echo = TRUE}
+summary(head(mtcars))
+```
+
+## The relationship between miles per galon and number of cylinders
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+plot_ly(data=mtcars,x=~cyl,y=~mpg,type='box')
+```
+
+## Displacement vs horse power vs Weight
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+plot_ly(data=mtcars,x=~disp,y=~hp,z=~wt,type = "scatter3d")
+
+```
